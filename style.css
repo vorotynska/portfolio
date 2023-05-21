@@ -37,6 +37,12 @@
 
 /* General styles */
 
+/* endable this to add smooth scrolling */
+/* html {
+    scroll-behavior: smooth;
+} */
+
+
 body {
     background: var(--clr-light);
     color: var(--clr-dark);
@@ -141,16 +147,16 @@ header {
 
 .nav {
     position: fixed;
-    background-color: var(--clr-dark);
+    background: var(--clr-dark);
     color: var(--clr-light);
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 100;
-
+    
     transform: translateX(100%);
-    transition: 250ms cubic-bezier(.5, 0, .5, 1);
+    transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
 }
 
 .nav__list {
@@ -168,11 +174,11 @@ header {
     color: inherit;
     font-weight: var(--fw-bold);
     font-size: var(--fs-h2);
-    text-decoration:none;
+    text-decoration: none;
 }
 
 .nav__link:hover {
-    color: vr(--clr-accent);
+    color: var(--clr-accent);
 }
 
 .nav-toggle {
@@ -185,6 +191,31 @@ header {
     top: 1em;
     z-index: 1000;
 }
+
+.nav-open .nav {
+    transform: translateX(0);
+}
+
+.nav-open .nav-toggle {
+    position: fixed;
+}
+
+.nav-open .hamburger {
+    transform: rotate(.625turn);
+}
+
+.nav-open .hamburger::before {
+    transform: rotate(90deg) translateX(-6px);
+}
+
+.nav-open .hamburger::after {
+    opacity: 0;
+}
+
+
+
+
+
 
 .hamburger {
     display: block;
@@ -350,7 +381,7 @@ header {
     }
 }
 
-/* My work  */
+/* My Work */
 
 .my-work {
     background-color: var(--clr-dark);
@@ -385,8 +416,8 @@ header {
     opacity: .5;
 }
 
-/* footer */
 
+/* footer */
 
 .footer {
     background: #111;
@@ -429,4 +460,19 @@ header {
 
 .social-list__link {
     padding: .5em;
+}
+
+
+/* Individual portfolio item styles */
+
+.portfolio-item-individual {
+    padding: 0 2em 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.portfolio-item-individual p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
